@@ -10,7 +10,7 @@ function Home() {
     <div className="App">
       <header className="App-header">
         <img
-          hidden={!isReady}
+          hidden={isReady}
           src="https://www.freeiconspng.com/uploads/file-pokeball-png-0.png"
           className="App-logo"
           alt="logo"
