@@ -6,14 +6,22 @@ function Home() {
   const [text, setText] = useState("");
   const [isReady, setIsReady] = useState(false);
 
-  const changeHandler=(e)=>{
-    setIsReady({...isReady,[e.target.name]:e.target.value});
-  }
+  const changeHandler = (e) => {
+    setIsReady({ ...isReady, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="App">
       <header className="App-header">
-        <a href="https://www.freeiconspng.com/uploads/file-pokeball-png-0.png"/><img
+        <NavLink
+          className="navbar-item"
+          activeClassName="is-active"
+          to="/pokedex "
+          exact
+        >
+          pokedex
+        </NavLink>
+        <img
           hidden={isReady}
           src="https://www.freeiconspng.com/uploads/file-pokeball-png-0.png"
           className="App-logo"
@@ -26,7 +34,7 @@ function Home() {
           red text away when "Ready!" is in the textbox.
         </b>
         <p>Are you ready to be a pokemon master?</p>
-        <input type="text" name="name" isReady={changeHandler}/>
+        <input type="text" name="name" isReady={changeHandler} />
         <span style={{ color: "red" }}>I am not ready yet!</span>
       </header>
     </div>
