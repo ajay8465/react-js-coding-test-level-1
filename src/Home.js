@@ -6,9 +6,7 @@ function Home() {
   const [text, setText] = useState("");
   const [isReady, setIsReady] = useState(false);
 
-  const changeHandler = (e) => {
-    setIsReady({ ...isReady, [e.target.name]: e.target.value });
-  };
+  const onClick = () => setIsReady(true)
 
   return (
     <div className="App">
@@ -34,8 +32,8 @@ function Home() {
           red text away when "Ready!" is in the textbox.
         </b>
         <p>Are you ready to be a pokemon master?</p>
-        <input type="text" name="name" isReady={changeHandler} />
-        <span style={{ color: "red" }}>I am not ready yet!</span>
+        <input type="text" name="name" onClick={onClick}/>{ isReady ? <setText/> : null }
+        <span hidden={!isReady}style={{ color: "red" }}>I am not ready yet!</span>
       </header>
     </div>
   );
